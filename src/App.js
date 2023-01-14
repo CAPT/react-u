@@ -1,21 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import './App.css'
+import PostForm from './components/PostForm'
 import PostList from './components/PostList'
-import MyButton from './components/UI/button/MyButton'
-import MyInput from './components/UI/input/MyInput'
 
 function App() {
     const [posts, setPosts] = useState([
         { id: 1, title: 'js', body: 'asdasdasdasdsa' },
         { id: 2, title: 'js', body: 'asdasdasdasdsa' },
     ])
+
+    const createPost = (newPost) => setPosts([...posts, newPost])
+
     return (
         <div className="App">
-            <form>
-                <MyInput placeholder="name" />
-                <MyInput placeholder="body" />
-                <MyButton>asdsad</MyButton>
-            </form>
+            <PostForm create={createPost} />
             <PostList posts={posts} title="Список постов" />
         </div>
     )
