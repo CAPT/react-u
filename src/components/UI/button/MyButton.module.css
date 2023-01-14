@@ -1,0 +1,19 @@
+.myBtn{
+    padding: 5px 15px;
+    color:purple;
+    font-size:14px;
+    background: transparent;
+    border: 1px solid purple;
+    cursor: pointer;
+}
+
+.myBtn:hover{
+    color:white;
+    background-color:purple;
+}
+
+.myBtn:hover:disabled{
+    background:lightgray;
+    border-color: lightgray;
+    cursor:not-allowed;
+}
