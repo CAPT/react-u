@@ -26,7 +26,7 @@ const PostForm = ({ create }) => {
     }
     return (
         <form>
-            {/* управлямый */}
+            {/* управляемый */}
             <MyInput
                 type="text"
                 value={post.title}
@@ -39,13 +39,15 @@ const PostForm = ({ create }) => {
                 onChange={(e) => setPost({ ...post, body: e.target.value })}
                 placeholder="Содержание поста"
             />
-            {/* Неуправлямый */}
+            {/* Неуправляемый */}
             {/* <MyInput
                     type="text"
                     ref={bodyInputRef}
                     placeholder="Содержание поста"
                 /> */}
-            <MyButton onClick={addNewPost}>Добавить</MyButton>
+            <MyButton disabled={!post.body || !post.title} onClick={addNewPost}>
+                Добавить
+            </MyButton>
         </form>
     )
 }
