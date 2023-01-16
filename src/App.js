@@ -1,49 +1,41 @@
-import React, { useState, useRef, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
+import { usePosts } from './components/hooks/usePosts'
 import PostFilter from './components/PostFilter'
 import PostForm from './components/PostForm'
 import PostList from './components/PostList'
 import MyButton from './components/UI/button/MyButton'
-import MyInput from './components/UI/input/MyInput'
 import MyModal from './components/UI/modal/MyModal'
-import MySelect from './components/UI/select/MySelect'
+import axios from 'axios'
 
 function App() {
-    const [posts, setPosts] = useState([
-        { id: 1, title: '111', body: 'e212esd' },
-        { id: 2, title: '222', body: 'aa' },
-    ])
+    const [posts, setPosts] = useState([])
+
+    const [filter, setFilter] = useState({ sort: '', query: '' })
+    const [modalVisible, setModalVisible] = useState(false)
+    const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query)
 
     const createPost = (newPost) => {
         setPosts([...posts, newPost])
         setModalVisible(false)
     }
 
+    async function fetchPosts() {
+        const response = await axios.get(
+            'https://jsonplaceholder.typicode.com/posts'
+        )
+        setPosts(response.data)
+    }
+
     const removePost = (post) => {
         setPosts(posts.filter((p) => p.id !== post.id))
     }
 
-    const [filter, setFilter] = useState({ sort: '', query: '' })
-    const [modalVisible, setModalVisible] = useState(false)
-
-    const sortedPosts = useMemo(() => {
-        console.log('getSortedPosts')
-        if (filter.sort) {
-            return [...posts].sort((a, b) =>
-                a[filter.sort].localeCompare(b[filter.sort])
-            )
-        }
-        return posts
-    }, [filter.sort, posts])
-
-    const sortedAndSearchedPosts = useMemo(() => {
-        return sortedPosts.filter((post) =>
-            post.title.toLowerCase().includes(filter.query.toLowerCase())
-        )
-    }, [filter.query, sortedPosts])
-
     return (
         <div className="App">
+            <MyButton style={{ marginTop: '30px' }} onClick={fetchPosts}>
+                Получить посты
+            </MyButton>
             <MyButton
                 style={{ marginTop: '30px' }}
                 onClick={() => setModalVisible(true)}
