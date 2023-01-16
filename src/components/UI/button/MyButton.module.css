@@ -5,6 +5,8 @@
     background: transparent;
     border: 1px solid purple;
     cursor: pointer;
+    border-radius: 5px;
+    
 }
 
 .myBtn:hover{

@@ -15,6 +15,7 @@
   padding:15px;
   border: 2px solid purple;
   margin-top:15px;
+  border-radius: 5px;
   justify-content: space-between;
   align-items: center;
 }
