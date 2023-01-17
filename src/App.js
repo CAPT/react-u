@@ -33,6 +33,7 @@ function App() {
     const createPost = (newPost) => {
         setPosts([...posts, newPost])
         setModalVisible(false)
+        console.log(1)
     }
 
     const removePost = (post) => {
