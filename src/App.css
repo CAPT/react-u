@@ -37,3 +37,22 @@ transform: translateX(-350px);
   transform: translateX(-350px);
   transition: all 500ms ease-in;
 }
+
+.page__wrapper{
+  margin: 30px 0;
+  display:flex
+}
+.page {
+  padding:10px;
+  border:1px solid purple;
+  cursor:pointer;
+}
+.page:hover {
+  color: white;
+  background-color: purple;
+}
+.page__current {
+  font-weight:bold;
+  background-color:  rgb(216, 86, 10);
+  color:white;
+}
