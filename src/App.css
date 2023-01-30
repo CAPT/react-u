@@ -5,7 +5,8 @@
 }
 #root{
   display:flex;
-  justify-content:center;
+  flex-direction:column;
+  align-items:center;
 }
 .App{
   width:800px;
@@ -25,8 +26,7 @@ transform: translateX(-350px);
 }
 
 .post-enter-active {
-  transform:translateX(0px);
-  transition: all 500ms ease-in;
+  transform:translateX(0px);transition: all 500ms ease-in;
 }
 
 .post-exit {
@@ -55,4 +55,34 @@ transform: translateX(-350px);
   font-weight:bold;
   background-color:  rgb(216, 86, 10);
   color:white;
+}
+
+.navbar{
+  height:50px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  padding:0 15px;
+  background:#eee;
+  box-shadow: inset -1px -1px 20px 0px #aaa;
+}
+.navbar:hover{
+  box-shadow: inset -1px -1px 20px 0px purple;
+}
+
+.navbar__links{
+  margin-left:auto;  
+}
+.navbar__links a{
+  margin-right:5px;
+  text-decoration: none;
+  color:darkviolet;
+}
+.navbar__links a:visited{
+  color: darkviolet;
+  text-decoration: none;
+}
+.navbar__links a:hover {
+
+  text-decoration:underline
 }
