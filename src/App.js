@@ -42,12 +42,12 @@ function App() {
 
     const changePage = (page) => {
         setPage(page)
-        fetchPosts()
+        // fetchPosts()
     }
 
     useEffect(() => {
         fetchPosts()
-    }, [])
+    }, [page])
 
     return (
         <div className="App">
