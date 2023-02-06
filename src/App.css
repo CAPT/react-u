@@ -86,3 +86,6 @@ transform: translateX(-350px);
 
   text-decoration:underline
 }
+.post__btns{
+  display:flex;
+}
