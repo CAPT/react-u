@@ -62,6 +62,7 @@ transform: translateX(-350px);
   width:100%;
   display:flex;
   align-items:center;
+  flex-direction:row-reverse;
   padding:0 15px;
   background:#eee;
   box-shadow: inset -1px -1px 20px 0px #aaa;
